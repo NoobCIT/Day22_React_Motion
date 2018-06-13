@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import myIcon from '../images/icon.png';
 
 function PaintImage(props) {
-  console.log(props.location);
   return (
     <div>
       <img id='icon'
@@ -30,7 +29,6 @@ class App extends Component {
   }
 
   handleSlider(event) {
-    console.log(event.target.value);
     this.setState({
       stepSize: Number(event.target.value)
     })
@@ -62,9 +60,6 @@ class App extends Component {
         break;
       case 39:
         //right
-        console.log(xCoordinate);
-        console.log(stepSize);
-        console.log(canvasWidth);
         if (xCoordinate + stepSize <= canvasWidth) {
           xCoordinate += stepSize;
         } else {
@@ -97,7 +92,15 @@ class App extends Component {
         </div>
         <div className='slideContainer'>
           <h3>Increase your step size below</h3>
-          <input type='range' min='1' max='50' value={this.state.stepSize} step='1' className='slider' id='myRange' onChange={this.handleSlider} />
+          <input type='range'
+            min='1'
+            max='50'
+            value={this.state.stepSize}
+            step='1'
+            className='slider'
+            id='myRange'
+            onChange={this.handleSlider}
+          />
         </div>
       </div>
     );
